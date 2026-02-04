@@ -1,7 +1,7 @@
 //design file
 module full_adder_data(input a,b,c,output sum,cout);
   assign sum=a^b^c;
-  assign cout=a&b;
+  assign cout=(a&b)|(b&c)|(a&c);
 endmodule 
 
 //test bench file 
