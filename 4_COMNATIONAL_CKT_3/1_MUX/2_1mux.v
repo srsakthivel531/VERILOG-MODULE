@@ -1,13 +1,13 @@
 //design file 
-module _2_1_data(input a,b,s,output y);
+module _2_1mux(input a,b,s,output y);
   assign y=s?b:a;
 endmodule
 
 //design file 
-module _2_1_data_tb;
+module _2_1mux_tb;
   reg a,b,s;
   wire y;
-  _2_1_data uut(a,b,s,y);
+  _2_1mux uut(a,b,s,y);
   initial 
     begin 
       $monitor("time=%0t a=%b b=%b s=%b  y=%b",$time,a,b,s,y);
