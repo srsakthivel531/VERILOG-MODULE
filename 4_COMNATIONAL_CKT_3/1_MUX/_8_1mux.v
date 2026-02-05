@@ -1,5 +1,5 @@
 //design file 
-module _8_1_data(input [2:0] a,b,c,d,e,f,g,h,s0,s1,s2,output [2:0] y);
+module _8_1_data(input [2:0] a,b,c,d,e,f,g,h,input s0,s1,s2,output [2:0] y);
   assign y=s2?(s1?(s0?h:g):(s0?f:e)):(s1?(s0?d:c):(s0?b:a));
 endmodule 
 
