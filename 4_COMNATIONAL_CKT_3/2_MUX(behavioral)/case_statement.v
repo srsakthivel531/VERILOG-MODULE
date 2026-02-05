@@ -7,6 +7,7 @@ module _4_1mux(input [1:0]a,b,c,d,input s0,s1,output reg[1:0] y);
       2'b01 :y=b;
       2'b10:y=c;
       2'b11:y=d;
+        default:y=0;
     endcase
   end
       
