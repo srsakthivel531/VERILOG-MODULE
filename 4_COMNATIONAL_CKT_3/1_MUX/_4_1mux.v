@@ -8,7 +8,7 @@ module _4_1_data_tb;
   reg [1:0]a,b,c,d;
   reg s0,s1;
   wire y;
-  _4_1_data uut(a,b,c,d,s0,s1,y);
+  _4_1_data uut(a,b,c,d,s1,s0,y);
   initial 
     begin 
       $monitor("time=%0t s0=%b s1=%b y=%b",$time,s0,s1,y);
