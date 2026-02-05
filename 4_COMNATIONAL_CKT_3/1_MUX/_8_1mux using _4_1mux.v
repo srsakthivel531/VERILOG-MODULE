@@ -22,7 +22,7 @@ module _8_1mux_tb;
   reg [2:0]a,b,c,d,e,f,g,h;
   reg s0,s1,s2;
   wire [2:0]y;
-  _8_1mux uut(a,b,c,d,e,f,g,h,s0,s1,s2,y);
+  _8_1mux uut(a,b,c,d,e,f,g,h,s2,s1,s0,y);
  
   initial 
     begin 
