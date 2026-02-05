@@ -44,7 +44,7 @@ module _4_1mux_tb;
   reg [1:0]a,b,c,d;
   reg s1,s0;
   reg [1:0]y;
-  _4_1mux uut(a,b,c,d,s0,s1,y);
+  _4_1mux uut(a,b,c,d,s1,s0,y);
   initial 
     begin 
       $monitor("time=%0t s1=%b s0=%b y=%b",$time,s1,s0,y);
