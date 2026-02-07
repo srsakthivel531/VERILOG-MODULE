@@ -9,12 +9,12 @@ module demux_1x4(input a,input [1:0]s,output reg [3:0]y);
        end 
 endmodule 
 
-module demux_1x2(input a,s,output reg [1:0]y);
-  assign y=s?2'b10:2'b01;
+module demux_1x2(input a,s,output [1:0]y);
+  assign y=s?({a,1'b0}):({1'b0,a});
 endmodule
 //instantiate
  
-module demux_1x8(input a,input [2:0]s,output reg [7:0]y );
+module demux_1x8(input a,input [2:0]s,output reg[7:0]y );
   wire [1:0]t ;
   demux_1x2 d1(a,s[2],t[1:0]);
   demux_1x4 d2(t[0],s[1:0],y[3:0]);
