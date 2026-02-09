@@ -3,7 +3,7 @@ module srlatch_nand(input s,r,input clk,output reg q);
  
   always@(s or r or clk)
     begin
-       q=1'b0;
+      
       if (clk)
       case({s,r})
         2'b11: q<=q;
