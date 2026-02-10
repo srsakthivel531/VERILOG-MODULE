@@ -19,8 +19,7 @@ module asyn_ff_tb;
      initial 
     begin
       clk=1'b1;
-      rst=1'b0;
-      forever #5 clk=~clk;
+    forever #5 clk=~clk;
         end 
      
       initial
@@ -28,10 +27,10 @@ module asyn_ff_tb;
           $monitor("$time=%0t  d=%b clk=%b rst=%d  q=%b",$time,d,clk,rst,q);
          
        d=1;rst=0;
-          #2d=1;rst=0;
-          #2d=0;rst=0;
-          #2d=0;rst=1;
-          #2d=1;rst=0;
+          #2d=1;rst=1;
+          #5d=0;rst=0;
+          #4d=0;rst=1;
+          #5d=1;rst=0;
           
            #5$finish;
           
