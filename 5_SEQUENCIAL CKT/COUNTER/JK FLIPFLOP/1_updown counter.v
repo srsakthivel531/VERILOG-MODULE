@@ -1,16 +1,23 @@
 //design file 
 // up/down counter 
+// up/down counter 
 module jk_ff(input j,k,input clk,rst,output reg q,qbar);
- assign qbar=~q; 
-  always@(negedge clk or posedge rst)
+
+  always@(posedge clk or posedge rst)
     begin
       if(rst==1)
+        begin
         q<=0;
-      else 
+        qbar<=1;
+        end
+      else begin 
         case({j,k})
-         2'b11: q<=~q;
-        default: q<=0;
+         2'b11: begin q<=~q;qbar<=~qbar;
+         end
+        default:begin q<=0;qbar<=1;
+         end
       endcase
+      end
           end 
 endmodule 
 
@@ -21,6 +28,7 @@ assign t=m?qbar:q;
   jk_ff a2(j[1],k[1],t[0],rst,q[1],qbar[1]);
   jk_ff a3(j[2],k[2],t[1],rst,q[2],qbar[2]);
 endmodule 
+
 
 //test bench file 
 module up_downcounter_tb;
