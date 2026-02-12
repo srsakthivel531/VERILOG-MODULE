@@ -14,7 +14,7 @@ module t_ff(input t,clk,input rst,output reg q);
         end 
     end 
 endmodule 
-module asyn_upcounter(input [2:0]t,input clk,rst,output reg [2:0]q);
+module asyn_downcounter(input [2:0]t,input clk,rst,output reg [2:0]q);
  
   t_ff t1(t[0],clk,rst,q[0]);
   t_ff t2(t[1],q[0],rst,q[1]);
@@ -25,7 +25,7 @@ module t_ff_tb;
   reg [2:0]t;
   reg clk,rst;
   wire [2:0]q;
-  asyn_upcounter uut(t,clk,rst,q);
+  asyn_downcounter uut(t,clk,rst,q);
  
   initial 
     begin 
