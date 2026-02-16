@@ -9,7 +9,9 @@ assign d[0] = q[1];
 always @(posedge clk or posedge rst) begin
     if (rst)
         q <= 4'b1000;
-    elsemodule ring_counter_tb;
+    else
+      q<=d;
+  module ring_counter_tb;
 
   reg rst,clk;
   reg [3:0]q,qbar;
