@@ -18,7 +18,7 @@ module pipo_tb;
 
   pipo uut(pin,clk,rst,q);
   initial begin 
-    $monitor("$time=%0t pin=%b clk=%b rst=%b q=%b sout=%b",$time,pin,clk,rst,q);
+    $monitor("$time=%0t pin=%b clk=%b rst=%b q=%b ",$time,pin,clk,rst,q);
      clk=1'b0;
     forever #5 clk=~clk;
   end 
