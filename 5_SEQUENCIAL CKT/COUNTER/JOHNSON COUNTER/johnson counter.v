@@ -1,5 +1,5 @@
 //design file 
-module ring_counter (input clk,input rst, output reg [3:0] q,qbar);
+module johnson_counter (input clk,input rst, output reg [3:0] q,qbar);
 wire[3:0] d;
 assign qbar=~q;
   assign d[3] = qbar[0];
@@ -11,11 +11,11 @@ always @(posedge clk or posedge rst) begin
         q <= 4'b1000;
     else
       q<=d;
-  module ring_counter_tb;
+  module johnson_counter_tb;
 
   reg rst,clk;
   reg [3:0]q,qbar;
-  ring_counter uut(clk,rst,q,qbar);
+  johnson_counter uut(clk,rst,q,qbar);
   initial begin 
     $monitor("$time=%0t clk=%b rst=%b q=%b qbar=%b",$time,clk,rst,q,qbar);
      clk=1'b0;
@@ -23,8 +23,8 @@ always @(posedge clk or posedge rst) begin
   end 
   initial 
     begin
-      $dumpfile("ringcounter.vcd");   
-      $dumpvars(1,ring_counter_tb);
+      $dumpfile("johnson counter.vcd");   
+      $dumpvars(1,johnson_counter_tb);
         end
   initial begin 
     rst=1'b1;
