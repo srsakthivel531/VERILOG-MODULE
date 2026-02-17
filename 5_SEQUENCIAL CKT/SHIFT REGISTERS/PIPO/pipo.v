@@ -1,6 +1,6 @@
 //design file 
 module pipo(input [3:0]pin,input clk,rst,output reg[3:0]q);
-  reg [3:0]d;
+  wire [3:0]d;
 assign d=pin;
   always @(posedge clk or posedge rst)
     begin 
