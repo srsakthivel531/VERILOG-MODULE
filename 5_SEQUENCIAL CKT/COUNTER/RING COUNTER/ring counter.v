@@ -1,6 +1,6 @@
 //design file 
 module ring_counter (input clk,input rst, output reg [3:0] q);
-reg [3:0] d;
+wire [3:0] d;
 assign d[3] = q[0];
 assign d[2] = q[3];
 assign d[1] = q[2];
