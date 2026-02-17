@@ -1,5 +1,5 @@
 //design file 
-module asyn_upcounter(input clk,rst,output reg [3:0]q,qbar);
+module asyn_upcounter(input clk,rst,output reg [3:0]q,output [3:0] qbar);
 assign qbar=~q; 
   always@ (negedge clk or posedge rst)   
     begin 
