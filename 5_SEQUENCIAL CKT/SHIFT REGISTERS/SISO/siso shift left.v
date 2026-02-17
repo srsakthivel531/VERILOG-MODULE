@@ -1,6 +1,6 @@
 //design file 
 module siso(input sin,input clk,rst,output reg[3:0]q, output  sout);
-  reg [3:0]d;
+  wire  [3:0]d;
   assign d[0]=sin;
   assign d[1]=q[0];
   assign d[2]=q[1];
