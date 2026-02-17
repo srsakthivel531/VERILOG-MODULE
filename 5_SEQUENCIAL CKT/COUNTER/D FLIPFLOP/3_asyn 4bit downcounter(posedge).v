@@ -1,5 +1,5 @@
 //design file 
-module asyn_downcounter(input clk,rst,output reg [3:0]q,qbar);
+module asyn_downcounter(input clk,rst,output reg [3:0]q,output [3:0] qbar);
 assign qbar=~q; 
   always@ (posedge clk or posedge rst)   
     begin 
