@@ -1,11 +1,11 @@
 //design file 
-module siso(input sin,input clk,rst,output reg[3:0]q, output reg  sout);
+module siso(input sin,input clk,rst,output reg[3:0]q, output   sout);
   reg [3:0]d;
   assign d[3]=sin;
   assign d[2]=q[3];
   assign d[1]=q[2];
   assign d[0]=q[1];
-  assign sout=q[3];
+  assign sout=q[0];
  always @(posedge clk or posedge rst)
     begin 
       if(rst)
