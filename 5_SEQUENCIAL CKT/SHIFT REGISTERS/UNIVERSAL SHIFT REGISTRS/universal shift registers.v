@@ -1,5 +1,5 @@
 //design file 
-module uni_shift_reg(input sin,clk,rst,input [1:0]s,input [3:0]pin,output reg [3:0]q,output  sout);
+module uni_shift_reg(input sin,clk,rst,input [1:0]s,input [3:0]pin,output reg [3:0]q,output  [3:0]sout);
   assign sout=rst?1'b0:(s[1]?(s[0]?pin:q[0]):(s[0]?q[3]:q) );
   always @(posedge clk or posedge rst)
     begin 
