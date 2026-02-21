@@ -22,7 +22,7 @@ module uni_shift_reg_tb;
   reg [1:0]s;
   reg [3:0]pin;
   wire [3:0]q;
-  wire sout;
+  wire [3:0] sout;
   uni_shift_reg  uut(sin,clk,rst,s,pin,q,sout);
 
    initial begin 
