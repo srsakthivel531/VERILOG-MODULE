@@ -1,70 +1,67 @@
 //design file 
-module mealy_nonover(input x,clk,rst,output reg q);
-  reg [1:0]state;
-  parameter s0=2'b0,s1=2'b1,s2=2'b10,s3=2'b11;
-  always @(posedge clk or posedge rst)
-    begin 
-      if(rst)
-        begin 
-        state<=s0;
-        q<=1'b0;
-        end 
-      else 
-        begin 
-        case(state)
-          s0:state<=x?s1:s0;
-          s1:state<=x?s2:s0; 
-          s2:state<=x?s2:s3;
-          s3:state<=s0;
-          default : state<=s0;
-        endcase 
-        end 
-    end 
-  always @(posedge clk )
-    begin 
-    if(state==s3 && x==1)
-      q<=1'b1;
+module mealy_nonover(input i,clk,rst,output reg q);
+  reg [1:0] state;
+  parameter s0=2'b00,s1=2'b01,s2=2'b10,s3=2'b11;
+
+  always @(posedge clk or posedge rst) 
+    begin
+    if(rst) 
+      state<=s0;
+    else 
+     begin
+      case(state)
+        s0:state<=i?s1:s0;
+        s1:state<=i?s2:s0; 
+        s2:state<=i?s2:s3;
+        s3:state<=i?s0:s0;
+        default:state<=s0;
+      endcase
+    end
+  end
+
+  always @(*) 
+    begin
+    if(state==s3 && i==1)
+      q = 1'b1;
     else
-      q<=1'b0;
-  end 
-endmodule 
+      q = 1'b0;
+  end
+endmodule
 //test bench file 
 module mealy_nonover_tb;
-  reg x,clk,rst;
+  reg i,clk,rst;
   wire q;
-  mealy_over uut(x,clk,rst,q);
+  mealy_nonover uut(i,clk,rst,q);
   initial 
     begin
       $dumpfile("fsm.vcd");   
       $dumpvars(1, mealy_nonover_tb);
     end 
    initial begin 
-     $monitor("$time=%0t x=%b clk=%b rst=%b q=%b ",$time,x,clk,rst,q);
+     $monitor("$time=%0t i=%b clk=%b rst=%b q=%b ",$time,i,clk,rst,q);
      clk=1'b0;
-    forever #1 clk=~clk;
+    forever #2 clk=~clk;
   end 
  initial begin 
-   rst=1'b1;x=1;
-   #1 rst=1'b0;
-   #1 x=1;
-   #1 x=1;
-   #1 x=0;
-   #1 x=1;
-   #1 x=0;
-   #1 x=1;
-   #1 x=1;
-    #1 x=0;
-   #1 x=1;
-   #1 x=1;
-    #2 x=1;
-   #2 x=0;
-   #2 x=1;
-   #2 x=1;
-    #2 x=0;
-   #2 x=1;
-  
-   
-
+   i=0;
+    rst=1;#1;
+ 
+    rst=0;#3;
+    i=1;#4;
+    i=1;#4;
+    i=0;#4;
+    i=1;#4;
+    i=0;#4;
+    i=1;#4;
+    i=0;#4;
+    i=1;#4;
+    i=1;#4;
+    i=1;#4;
+    i=0;#4;
+    i=1;#4;
+    i=0;#4;
+    i=1;#4;
+    i=0;#10;
    #20 $finish;
  end 
 endmodule 
