@@ -1,6 +1,6 @@
 //design file 
 module sipo(input sin,input clk,rst,output reg[3:0]q, output  [3:0] sout);
-  reg [3:0]d;
+  wire  [3:0]d;
   assign d[3]=sin;
   assign d[2]=q[3];
   assign d[1]=q[2];
