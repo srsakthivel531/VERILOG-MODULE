@@ -1,7 +1,7 @@
 //dualport 64*8
 module dualport(input clk,rst,wr_a,wr_b,input [7:0]data_a,data_b,
                 input [5:0]addr_a,addr_b,output reg [7:0]q_a,q_b);
-  reg [7:0]mem[0:64];
+  reg [7:0]mem[0:63];
   always @(posedge  clk)
     begin
       if(rst) begin 
